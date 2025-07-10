@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Score Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Social Score Calculator</h1>
+  <form id="scoreForm">
+    <label>Followers: <input type="number" id="followers" required></label>
+    <label>Engagement Rate (%): <input type="number" id="engagement" step="0.1" required></label>
+    <label>Posts per week: <input type="number" id="posts" required></label>
+    <label>Niche Relevance (1-10): <input type="number" id="niche" min="1" max="10" required></label>
+    <button type="submit">Calculate Score</button>
+  </form>
+  <div id="result"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

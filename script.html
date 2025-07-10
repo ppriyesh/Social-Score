@@ -1,0 +1,24 @@
+document.getElementById("scoreForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const followers = parseInt(document.getElementById("followers").value);
+  const engagement = parseFloat(document.getElementById("engagement").value);
+  const posts = parseInt(document.getElementById("posts").value);
+  const niche = parseInt(document.getElementById("niche").value);
+
+  // Basic weighted formula
+  const score = Math.min(1000, (
+    (followers / 1000) * 0.3 +
+    (engagement * 10) * 0.3 +
+    (posts * 5) * 0.2 +
+    (niche * 10) * 0.2
+  ).toFixed(0));
+
+  let tier = "Nano";
+  if (score > 800) tier = "Elite";
+  else if (score > 600) tier = "Pro";
+  else if (score > 400) tier = "Micro";
+
+  document.getElementById("result").innerHTML =
+    `<h2>Your Score: ${score}</h2><p>You are a <strong>${tier} Creator</strong></p>`;
+});
