@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Social Score Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Enter Your Social Metrics</h1>
+    <div class="box">
+        <form method="POST">
+            <label>Followers:</label><br>
+            <input type="number" name="followers" class="input" required><br><br>
+
+            <label>Engagement Rate (%):</label><br>
+            <input type="number" name="engagement" step="0.1" class="input" required><br><br>
+
+            <label>Posts per Month:</label><br>
+            <input type="number" name="posts" class="input" required><br><br>
+
+            <label>Conversion Rate (%):</label><br>
+            <input type="number" name="conversion" step="0.1" class="input" required><br><br>
+
+            <label>BLAC Fit Score (0–100):</label><br>
+            <input type="number" name="blac" class="input" required><br><br>
+
+            <input type="submit" value="Calculate Score" class="submit_btn">
+        </form>
+    </div>
+
+    {% if result %}
+        <h2>Results:</h2>
+        <ul>
+            {% for key, value in result.items() %}
+                <li><strong>{{ key }}:</strong> {{ value }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
